@@ -1,0 +1,16 @@
+{
+  "name": "@pollen-solutions/snapshot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jordy Manner",
+  "license": "ISC",
+  "devDependencies": {
+    "html2canvas": "1.0.0-rc.7"
+  },
+  "dependencies": {
+    "puppeteer": "^8.0.0"
+  }
+}
