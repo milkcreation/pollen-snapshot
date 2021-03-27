@@ -1,0 +1,55 @@
+{
+  "name": "pollen-solutions/snapshot",
+  "description": "Pollen Snapshot Component.",
+  "homepage": "https://www.presstify.com/pollen-solutions/snapshot/",
+  "keywords": [
+    "presstify",
+    "plugins",
+    "snapshot"
+  ],
+  "time": "2020-03-27",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jordy Manner",
+      "email": "jordy@presstify.com",
+      "role": "Developper"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://composer.presstify.com/pollen-solutions/"
+    }
+  ],
+  "require": {
+    "composer/installers": "~1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pollen\\Snapshot\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Pollen\\Snapshot\\Test\\": "tests"
+    }
+  },
+  "suggest": {
+    "knplabs/knp-snappy": "PHP library allowing thumbnail, snapshot or PDF generation.",
+    "h4cc/wkhtmltopdf-i386": "WkhHtml 32 bit KnpSnappy dependency PDF generation.",
+    "h4cc/wkhtmltopdf-amd64": "WkhHtml 64 bit KnpSnappy dependency PDF generation.",
+    "pollen-solutions/container" : "Pollen Container Component - PSR-11 ready Dependencies Injection Container.",
+    "spatie/browsershot": "Convert a webpage to an image or pdf using headless Chrome."
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,  
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  }
+}
