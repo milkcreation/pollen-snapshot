@@ -4,6 +4,7 @@
 
 - https://pptr.dev/
 - https://dev.to/sagar/how-to-capture-screenshots-with-puppeteer-3mb2
+- https://www.hebergementwebs.com/nouvelles/generation-de-pdf-de-haute-qualite-a-l-aide-de-marionnettiste
 
 ## HTML2CANVAS
 

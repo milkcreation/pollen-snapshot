@@ -11,6 +11,7 @@
     "html2canvas": "1.0.0-rc.7"
   },
   "dependencies": {
+    "minimist": "^1.2.5",
     "puppeteer": "^8.0.0"
   }
 }
