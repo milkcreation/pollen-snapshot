@@ -25,11 +25,11 @@ namespace App\Controller;
 
 use Pollen\Snapshot\Lib\WkHtmlToPdf;
 use Knp\Snappy\Pdf as SnappyPdf;
-use Pollen\Asset\AssetProxy;
 use Pollen\Http\ResponseInterface;
 use Pollen\Http\StreamedResponse;
 use Pollen\Http\StreamedResponseInterface;
 use Pollen\Routing\BaseViewController;
+use Pollen\Support\Proxy\AssetProxy;
 use Pollen\WpPost\WpPostProxy;
 
 class SnapshotController extends BaseViewController
@@ -47,9 +47,9 @@ class SnapshotController extends BaseViewController
         $this->params(
             [
                 'css' => [
-                    $this->asset()->get('api.snapshot.article-html.css'),
+                    $this->asset('api.snapshot.article-html.css'),
                 ],
-                'post'        => $this->wpPost()->post($id),
+                'post'        => $this->wpPost($id),
             ]
         );
 
