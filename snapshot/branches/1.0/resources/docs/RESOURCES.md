@@ -49,7 +49,7 @@ class SnapshotController extends BaseViewController
                 'css' => [
                     $this->asset('api.snapshot.article-html.css'),
                 ],
-                'post'        => $this->wpPost($id),
+                'post'        => $this->wpPost()->post($id),
             ]
         );
 
