@@ -22,7 +22,8 @@ const puppeteer = require('puppeteer'),
     // @see node_modules/puppeteer/lib/cjs/puppeteer/common/PDFOptions.d.ts
     await page.pdf({
       path: file,
-      format: 'a4'
+      format: 'a4',
+      printBackground: true
     });
   } else {
     await page.screenshot({path: file, fullPage: true});
