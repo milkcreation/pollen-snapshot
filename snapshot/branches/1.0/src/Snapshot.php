@@ -9,6 +9,7 @@ use Pollen\Http\BinaryFileResponse;
 use Pollen\Http\BinaryFileResponseInterface;
 use Pollen\Http\Response;
 use Pollen\Http\ResponseInterface;
+use Pollen\Support\Concerns\ResourcesAwareTrait;
 use Psr\Container\ContainerInterface as Container;
 use Pollen\Snapshot\Drivers\SnapshotPuppeteerDriver;
 use Pollen\Support\Filesystem;
@@ -22,6 +23,7 @@ use Symfony\Component\Process\Process;
 
 class Snapshot implements SnapshotInterface
 {
+    use ResourcesAwareTrait;
     use ContainerProxy;
 
     /**
@@ -49,12 +51,6 @@ class Snapshot implements SnapshotInterface
     protected $overwrite = true;
 
     /**
-     * Chemin absolu vers le répertoire des ressources.
-     * @var string|null
-     */
-    protected $resourcesBaseDir;
-
-    /**
      * Liste des chemins absolus vers les captures.
      * @var string[]
      */
@@ -75,6 +71,8 @@ class Snapshot implements SnapshotInterface
         if ($container !== null) {
             $this->setContainer($container);
         }
+
+        $this->setResourcesBaseDir(dirname(__DIR__) . '/resources');
 
         if ($driver !== null) {
             $this->driver = $driver;
@@ -156,7 +154,7 @@ class Snapshot implements SnapshotInterface
                     $ext = 'pdf';
                     break;
             }
-            $name .= ".{$ext}";
+            $name .= ".$ext";
         }
 
         if ($format === 'img' && !in_array($ext, ['jpg', 'png'])) {
@@ -292,26 +290,6 @@ class Snapshot implements SnapshotInterface
     /**
      * @inheritDoc
      */
-    public function resources(?string $path = null): string
-    {
-        if ($this->resourcesBaseDir === null) {
-            $this->resourcesBaseDir = Filesystem::normalizePath(
-                realpath(
-                    dirname(__DIR__) . '/resources/'
-                )
-            );
-
-            if (!file_exists($this->resourcesBaseDir)) {
-                throw new RuntimeException('Snapshot ressources directory unreachable');
-            }
-        }
-
-        return is_null($path) ? $this->resourcesBaseDir : $this->resourcesBaseDir . Filesystem::normalizePath($path);
-    }
-
-    /**
-     * @inheritDoc
-     */
     public function setCapture(string $name, string $filename): SnapshotInterface
     {
         if (!file_exists($filename)) {
@@ -340,16 +318,6 @@ class Snapshot implements SnapshotInterface
     public function setOverwrite(bool $overwrite = true): SnapshotInterface
     {
         $this->overwrite = $overwrite;
-
-        return $this;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function setResourcesBaseDir(string $resourceBaseDir): SnapshotInterface
-    {
-        $this->resourcesBaseDir = Filesystem::normalizePath($resourceBaseDir);
 
         return $this;
     }

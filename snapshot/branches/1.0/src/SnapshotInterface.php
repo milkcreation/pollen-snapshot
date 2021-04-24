@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Pollen\Snapshot;
 
 use Pollen\Http\ResponseInterface;
+use Pollen\Support\Concerns\ResourcesAwareTraitInterface;
+use Pollen\Support\Proxy\ContainerProxyInterface;
 use RuntimeException;
 
-interface SnapshotInterface
+interface SnapshotInterface extends ResourcesAwareTraitInterface, ContainerProxyInterface
 {
     /**
      * Récupération de la liste des captures.
@@ -73,15 +75,6 @@ interface SnapshotInterface
     public function pdf(string $url, ?string $name = null): SnapshotInterface;
 
     /**
-     * Chemin absolu vers une ressource (fichier|répertoire).
-     *
-     * @param string|null $path Chemin relatif vers la ressource.
-     *
-     * @return string
-     */
-    public function resources(?string $path = null): string;
-
-    /**
      * Définition d'une capture.
      *
      * @param string $name
@@ -110,13 +103,4 @@ interface SnapshotInterface
      * @return static
      */
     public function setOverwrite(bool $overwrite = true): SnapshotInterface;
-
-    /**
-     * Définition du chemin absolu vers le répertoire des ressources.
-     *
-     * @param string $resourceBaseDir
-     *
-     * @return static
-     */
-    public function setResourcesBaseDir(string $resourceBaseDir): SnapshotInterface;
 }
