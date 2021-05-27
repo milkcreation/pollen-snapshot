@@ -6,5 +6,5 @@ namespace Pollen\Snapshot\Lib;
 
 class WkHtmlToPdf
 {
-    const PATH = __DIR__ . '/../../resources/bin/wkhtmltopdf';
+    public const PATH = __DIR__ . '/../../resources/bin/wkhtmltopdf';
 }

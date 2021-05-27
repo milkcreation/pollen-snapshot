@@ -44,16 +44,16 @@ class SnapshotController extends BaseViewController
      */
     public function snapshotArticleHtml($id): ResponseInterface
     {
-        $this->params(
+        $this->datas(
             [
                 'css' => [
                     $this->asset('api.snapshot.article-html.css'),
                 ],
-                'post'        => $this->wpPost()->post($id),
+                'post'        => $this->wpPost()->get($id),
             ]
         );
 
-        return $this->view('api/snapshot/index', $this->params()->all());
+        return $this->view('api/snapshot/index');
     }
 
     /**
