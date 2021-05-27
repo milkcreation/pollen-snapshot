@@ -6,5 +6,5 @@ namespace Pollen\Snapshot\Lib;
 
 class WkHtmlToImage
 {
-    const PATH = __DIR__ . '/../../resources/bin/wkhtmltoimage';
+    public const PATH = __DIR__ . '/../../resources/bin/wkhtmltoimage';
 }

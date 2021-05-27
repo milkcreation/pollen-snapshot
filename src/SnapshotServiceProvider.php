@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Pollen\Snapshot;
 
 use Pollen\Snapshot\Drivers\SnapshotPuppeteerDriver;
-use Pollen\Container\BaseServiceProvider;
+use Pollen\Container\BootableServiceProvider;
 
-class SnapshotServiceProvider extends BaseServiceProvider
+class SnapshotServiceProvider extends BootableServiceProvider
 {
     /**
      * @var string[]
