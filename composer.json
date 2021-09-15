@@ -1,25 +1,18 @@
 {
   "name": "pollen-solutions/snapshot",
   "description": "Pollen Snapshot Component - A Website screenshot generator.",
-  "homepage": "https://www.presstify.com/pollen-solutions/snapshot/",
+  "homepage": "https://github.com/milkcreation/pollen-snapshot.git",
   "keywords": [
     "presstify",
     "plugins",
     "snapshot"
   ],
-  "time": "2020-05-27",
+  "time": "2021-09-15",
   "license": "MIT",
   "authors": [
     {
       "name": "Jordy Manner",
-      "email": "jordy@presstify.com",
-      "role": "Developper"
-    }
-  ],
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://composer.presstify.com/pollen-solutions/"
+      "email": "jordy@presstify.com"
     }
   ],
   "require": {
